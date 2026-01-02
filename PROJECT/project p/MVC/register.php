@@ -44,5 +44,31 @@ border-radius:12px
 }
 </style>
 </head>
+ <body>
+<div class="card">
+<h3>Create Account</h3>
  
+<form method="POST">
+ 
+<label>Username</label>
+<input type="text" name="username" placeholder="Enter username">
+
+ 
+<label>Email</label>
+<input type="email" name="email" placeholder="Enter email">
+ 
+<label>Password</label>
+<input type="password" name="password" placeholder="Enter password">
+ 
+<label>Role</label>
+<input type="text" name="role" value="user">
+ 
+<button type="submit">Register</button>
+</form>
+ 
+<div class="login-text">
+Already have an account? <a href="">Login</a>
+</div>
+</div>
+</body>
 </html>
