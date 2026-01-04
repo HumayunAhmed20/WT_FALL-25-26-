@@ -1,3 +1,74 @@
+<?php
+// ================= DATABASE CONNECTION =================
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "humayun";
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// ================= VARIABLES =================
+$success = $error = "";
+$username = $email = "";
+
+// ================= FORM SUBMIT =================
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $username = trim($_POST["username"]);
+    $password = $_POST["password"];
+    $email    = trim($_POST["email"]);
+
+    // ================= VALIDATION =================
+    if (empty($username)) {
+        $error = "Username required";
+    } elseif (strlen($username) < 3) {
+        $error = "Username must be at least 3 characters";
+    } elseif (empty($password)) {
+        $error = "Password required";
+    } elseif (strlen($password) < 6) {
+        $error = "Password must be at least 6 characters";
+    } elseif (empty($email)) {
+        $error = "Email required";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Invalid email format";
+    } else {
+
+        // ================= DUPLICATE EMAIL CHECK =================
+        $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+        $check->bind_param("s", $email);
+        $check->execute();
+        $check->store_result();
+
+        if ($check->num_rows > 0) {
+            $error = "Email already exists";
+        } else {
+
+            // ================= INSERT DATA =================
+            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $conn->prepare(
+                "INSERT INTO users (username, password, email) VALUES (?, ?, ?)"
+            );
+            $stmt->bind_param("sss", $username, $hashPassword, $email);
+
+            if ($stmt->execute()) {
+                $success = "Registration complete";
+                $username = $email = "";
+            } else {
+                $error = "Registration failed";
+            }
+            $stmt->close();
+        }
+        $check->close();
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
