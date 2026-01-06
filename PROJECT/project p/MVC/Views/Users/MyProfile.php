@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<link rel="stylesheet" href="../../Views/CSS/myprofile.css">
   <title>Profile - AIUB Sports</title>
   <style>
  
