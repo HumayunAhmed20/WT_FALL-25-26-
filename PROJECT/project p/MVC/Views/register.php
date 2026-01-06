@@ -1,27 +1,25 @@
+
 <?php
-// ================= DATABASE CONNECTION =================
+
 $host = "localhost";
 $user = "root";
 $pass = "";
 $dbname = "humayun";
 
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
-// ================= VARIABLES =================
+
+
 $success = $error = "";
 $username = $email = "";
 
-// ================= FORM SUBMIT =================
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = trim($_POST["username"]);
     $password = $_POST["password"];
     $email    = trim($_POST["email"]);
 
-    // ================= VALIDATION =================
+
     if (empty($username)) {
         $error = "Username required";
     } elseif (strlen($username) < 3) {
@@ -36,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Invalid email format";
     } else {
 
-        // ================= DUPLICATE EMAIL CHECK =================
         $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
         $check->bind_param("s", $email);
         $check->execute();
@@ -46,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Email already exists";
         } else {
 
-            // ================= INSERT DATA =================
+            
             $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
             $stmt = $conn->prepare(
