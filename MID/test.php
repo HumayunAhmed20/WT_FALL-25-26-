@@ -122,6 +122,7 @@ Skills:
 <input type="checkbox" name="skill[]" value="PHP"> PHP
 <input type="checkbox" name="skill[]" value="Java"> Java
 <input type="checkbox" name="skill[]" value="C++"> C++
+<input type="checkbox" name="skill[]" value="C#"> C#
 <?php echo $skillErr; ?><br><br>
  
 Blood Group:
