@@ -1,96 +1,33 @@
-    *body {
-      font-family: 'Poppins', sans-serif;
-      background: #f4f6f9;
-      margin: 0;
-    }
- 
-  
-    .sidebar {
-      height: 100vh;
-      width: 220px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #0d6efd;
-      padding-top: 2rem;
-      color: #fff;
-    }
-    .sidebar a {
-      display: block;
-      color: #fff;
-      padding: 12px 20px;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-      border-radius: 8px;
-      transition: 0.2s;
-    }
-    .sidebar a:hover {
-      background-color: #084298;
-    }
-    .sidebar h4 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #ffd369;
-    }
- 
-   
-    .top-navbar {
-      background-color: #fff;
-      padding: 1rem 2rem;
-      margin-left: 220px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .top-navbar h5 {
-      margin: 0;
-      color: #0d6efd;
-    }
- 
-   
-    .main-content {
-      margin-left: 220px;
-      padding: 2rem;
-    }
- 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
- 
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
- 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      font-size: 1rem;
-    }
- 
-    button.btn-custom {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: linear-gradient(45deg, #0d6efd);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 220px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0d6efd;
+  padding-top: 2rem;
+  color: #fff;
+}
+.sidebar a {
+  display: block;
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.sidebar a:hover {
+  background-color: #084298;
+}
+.sidebar h4 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffd369;
+}
