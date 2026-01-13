@@ -31,3 +31,24 @@ body {
   margin-bottom: 2rem;
   color: #ffd369;
 }
+.top-navbar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  margin-left: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.top-navbar h5 {
+  margin: 0;
+  color: #0d6efd;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 2rem;
+}
