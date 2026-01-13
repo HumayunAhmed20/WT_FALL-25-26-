@@ -33,3 +33,28 @@ body{
 .sidebar a:hover{
     background:#084298;
 }
+.topbar{
+    margin-left:220px;
+    background:#fff;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.main{
+    margin-left:220px;
+    padding:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+.card h4{
+    margin-top:0;
+}
