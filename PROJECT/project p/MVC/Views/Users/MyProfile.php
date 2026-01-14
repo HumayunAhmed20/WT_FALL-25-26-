@@ -2,13 +2,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<link rel="stylesheet" href="../CSS/myprofile.css">
+
+  <link rel="stylesheet" href="/project p/MVC/Views/CSS/userdashboard.css">
 
   <title>Profile - AIUB Sports</title>
 </head>
 <body>
 
 <div class="sidebar">
-  
     <h4>User</h4>
      <a href="/project p/MVC/Views/Users/UserDashboard.php">Dashboard</a>
 
