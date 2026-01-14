@@ -1,4 +1,24 @@
+<?php
+session_start();
 
+$user_id = $_SESSION['user_id'] ?? 1;
+
+require_once __DIR__ . '/../../Controller/ProfileController.php';
+
+$controller = new ProfileController($user_id);
+
+
+$message = '';
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $success = $controller->updateProfile($_POST);
+
+    $message = $success ? "Profile updated successfully!" : "Failed to update profile.";
+}
+
+
+$user = $controller->getProfile();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
