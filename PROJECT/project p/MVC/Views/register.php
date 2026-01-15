@@ -1,107 +1,52 @@
-
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "humayun";
+require_once __DIR__ . '/../Model/db.php';
+require_once __DIR__ . '/../Controller/RegisterController.php';
+$db = new DataBase();
+$conn = $db->connect();
 
-
-
-
-$success = $error = "";
-$username = $email = "";
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $username = trim($_POST["username"]);
-    $password = $_POST["password"];
-    $email    = trim($_POST["email"]);
-
-
-    if (empty($username)) {
-        $error = "Username required";
-    } elseif (strlen($username) < 3) {
-        $error = "Username must be at least 3 characters";
-    } elseif (empty($password)) {
-        $error = "Password required";
-    } elseif (strlen($password) < 6) {
-        $error = "Password must be at least 6 characters";
-    } elseif (empty($email)) {
-        $error = "Email required";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Invalid email format";
-    } else {
-
-        $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
-        $check->bind_param("s", $email);
-        $check->execute();
-        $check->store_result();
-
-        if ($check->num_rows > 0) {
-            $error = "Email already exists";
-        } else {
-
-            
-            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            $stmt = $conn->prepare(
-                "INSERT INTO users (username, password, email) VALUES (?, ?, ?)"
-            );
-            $stmt->bind_param("sss", $username, $hashPassword, $email);
-
-            if ($stmt->execute()) {
-                $success = "Registration complete";
-                $username = $email = "";
-            } else {
-                $error = "Registration failed";
-            }
-            $stmt->close();
-        }
-        $check->close();
-    }
-}
+$controller = new RegistrationController(); 
+$message = $controller->handleRegister();
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../Views/CSS/register.css">
+<link rel="stylesheet" href="CSS/register.css">
 <title>Register</title>
- 
-<style>
-
-</style>
 </head>
- <body>
+<body>
 <div class="card">
-<h3>Create Account</h3>
- 
-<form method="POST">
- 
-<label>Username</label>
-<input type="text" name="username" placeholder="Enter username">
+    <h3>Create Account</h3>
 
- 
-<label>Email</label>
-<input type="email" name="email" placeholder="Enter email">
- 
-<label>Password</label>
-<input type="password" name="password" placeholder="Enter password">
- 
-<label>Role</label>
-<input type="text" name="role" value="user">
- 
-<button type="submit">Register</button>
-</form>
- 
-<div class="login-text">
-Already have an account? <a href="">Login</a>
-</div>
+    
+
+    <?php if(isset($message)) : ?>
+        <p style="color:red;">
+            <?php echo $message === true ? "Registration successful!" : $message; ?>
+        </p>
+    <?php endif; ?>
+
+    <form method="POST">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Enter username" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <label>Role</label>
+     <input type="text" name="role" value="user" readonly>
+
+        <button type="submit" name="submit">Register</button>
+    </form>
+
+    <div class="login-text">
+        Already have an account? <a href="login.php">Login</a>
+    </div>
 </div>
 </body>
 </html>
