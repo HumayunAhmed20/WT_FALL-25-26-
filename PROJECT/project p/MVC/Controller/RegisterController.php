@@ -1,6 +1,16 @@
 
 <?php
+require_once __DIR__ . '../../Model/db.php';
 
+class RegistrationController {
+    public $conn;
+
+
+    public function __construct(){
+        $db = new DataBase();
+
+        $this->conn = $db->connect();
+    }
 
     public function registerUser($user_id, $event_id, $event_name){
       
