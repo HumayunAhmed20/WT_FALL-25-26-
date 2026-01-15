@@ -18,5 +18,12 @@ class ProfileController {
         return $this->userModel->getUserById($this->user_id);
     }
 
+    public function updateProfile($data){
+        $username = trim($data['name']);
+        $email = trim($data['email']);
+        $password = !empty($data['password']) ? trim($data['password']) : null;
+
+        return $this->userModel->updateProfile($this->user_id, $username, $email, $password);
+    }
 }
 ?>
