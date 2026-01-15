@@ -1,5 +1,16 @@
 <?php
 
+session_start();
+
+
+$user_id = $_SESSION['user_id'] ?? 1; 
+
+require_once __DIR__ . '/../../Controller/UserDashboardController.php';
+$controller = new UserDashboardController($user_id);
+$data = $controller->getDashboardData();
+$events = $data['events'];
+$registrations = $data['registrations'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
