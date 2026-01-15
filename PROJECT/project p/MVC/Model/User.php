@@ -1,4 +1,10 @@
 <?php
+class User {
+    private $conn;
+
+    public function __construct($conn){
+        $this->conn = $conn;
+    }
 
     public function register($username, $email, $password, $role = 'user'){
        
@@ -55,12 +61,12 @@
 
         } else {
             $stmt = $this->conn->prepare("UPDATE users SET username=?, email=? WHERE id=?");
-
+            
             $stmt->bind_param("ssi", $username, $email, $user_id);
 
         }
 
         return $stmt->execute();
     }
-
+}
 ?>
