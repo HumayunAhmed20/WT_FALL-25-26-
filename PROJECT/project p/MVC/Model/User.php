@@ -37,5 +37,30 @@
 
 
 
-   
+    public function getUserById($user_id){
+        $stmt = $this->conn->prepare("SELECT id, username, email, role FROM users WHERE id=?");
+        $stmt->bind_param("i", $user_id);
+
+        $stmt->execute();
+
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function updateProfile($user_id, $username, $email, $password = null){
+        if($password){
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $this->conn->prepare("UPDATE users SET username=?, email=?, password=? WHERE id=?");
+            $stmt->bind_param("sssi", $username, $email, $hashed, $user_id);
+
+        } else {
+            $stmt = $this->conn->prepare("UPDATE users SET username=?, email=? WHERE id=?");
+
+            $stmt->bind_param("ssi", $username, $email, $user_id);
+
+        }
+
+        return $stmt->execute();
+    }
+
 ?>
