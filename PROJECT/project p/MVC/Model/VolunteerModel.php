@@ -18,5 +18,13 @@ class VolunteerModel {
         return $tasks;
     }
 
+    public function updateTaskStatus($task_id, $status, $user_id) {
+        $stmt = $this->conn->prepare("UPDATE volunteer_tasks SET status=? WHERE id=? AND volunteer_id=?");
+        $stmt->bind_param("sii", $status, $task_id, $user_id);
+        $success = $stmt->execute();
+        $stmt->close();
+        return $success;
+    }
+
    
 }
