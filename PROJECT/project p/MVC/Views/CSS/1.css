@@ -1,0 +1,135 @@
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins', Arial, sans-serif;
+        }
+
+body
+     {
+        background:#f4f6f9;
+        }
+
+.sidebar
+        {
+        position:fixed;
+        top:0;
+        left:0;
+        width:220px;
+        height:100vh;
+        background:#0d6efd;
+        padding-top:20px;
+        }
+
+.sidebar h4
+            {
+            text-align:center;
+            color:#ffd369;
+            margin-bottom:25px;
+            }
+
+.sidebar a
+            {
+            display:block;
+            color:#fff;
+            text-decoration:none;
+            padding:12px 20px;
+            margin:6px 12px;
+            border-radius:8px;
+            transition:.3s;
+            }
+
+.sidebar a:hover
+            {
+            background:#084298;
+            }
+
+.top-navbar
+            {
+            margin-left:220px;
+            background:#fff;
+            padding:15px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            box-shadow:0 2px 8px rgba(0,0,0,.1);
+            position:sticky;
+            top:0;
+            }
+
+.top-navbar h5
+            {
+            color:#0d6efd;
+            }
+
+.main-content
+            {
+            margin-left:220px;
+            padding:30px;
+            }
+
+.search-input
+            {
+            width:260px;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            margin-bottom:20px;
+            }
+
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+table
+        {
+        width:100%;
+        border-collapse:collapse;
+        }
+
+thead
+     {
+        background:#e9ecef;
+        }
+
+th,td
+    {
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+    }
+
+tr:hover
+        {
+        background:#f1f1f1;
+        }
+
+.badge
+        {
+        padding:6px 12px;
+        border-radius:20px;
+        font-size:13px;
+        color:#fff;
+        }
+
+.bg-warning{ background:#ffc107; color:#000; }
+.bg-success{ background:#198754; }
+.bg-danger{ background:#dc3545; }
+.bg-secondary{ background:#6c757d; }
+
+    .btn
+        {
+        padding:6px 12px;
+        border:none;
+        border-radius:6px;
+        font-size:14px;
+        cursor:pointer;
+        font-weight:bold;
+        }
+
+        .btn-success{ background:#198754; color:#fff; }
+        .btn-danger{ background:#dc3545; color:#fff; }
+        .btn-secondary{ background:#6c757d; color:#fff; cursor:not-allowed; }
