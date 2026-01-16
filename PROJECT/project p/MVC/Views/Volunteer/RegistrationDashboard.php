@@ -98,7 +98,15 @@ $class = match($status){
 
 </div>
 
-
+<script>
+function searchTable(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll("#registrationTable tbody tr").forEach(row=>{
+    const text = row.innerText.toLowerCase();
+    row.style.display = text.includes(input) ? "" : "none";
+  });
+}
+</script>
 
 </body>
 </html>
