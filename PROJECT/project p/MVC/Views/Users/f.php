@@ -51,3 +51,40 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
 ?>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forget Password</title>
+    <link rel="stylesheet" href="../CSS/myprofile.css">
+</head>
+<body>
+
+<div class="main-content">
+    <div class="card">
+        <h4>Forget Password</h4>
+
+        <?php if($message): ?>
+            <p style="color:green;"><?php echo $message; ?></p>
+        <?php endif; ?>
+
+       <form method="POST">
+
+    <label>ID</label>
+    <input type="text" name="id" value="<?php echo isset($_POST['id']) ? $_POST['id'] : ''; ?>" required>
+    <br>
+
+    <label>Username</label>
+    <input type="text" name="username" value="<?php echo isset($_POST['username']) ? $_POST['username'] : ''; ?>" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>" required>
+
+    
+
+        
+    </div>
+</div>
+
+</body>
+</html>
