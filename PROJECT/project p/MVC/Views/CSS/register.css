@@ -19,6 +19,27 @@ text-align:center;
 color:#0d6efd;
 margin-bottom:25px
 }
+
+    
+    .password-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .toggle-icon {
+        position: absolute;
+        right: 10px;
+        top: 35px; 
+        cursor: pointer;
+        user-select: none;
+    }
+
+img
+{
+    max-width:100%;
+    height:auto
+}
+
 label{font-weight:bold}
 input{
 width:100%;
