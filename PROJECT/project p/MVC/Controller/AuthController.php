@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once __DIR__ . "/../../MVC/Model/DB.php"; 
+require_once __DIR__ . "/../../MVC/Model/dB.php"; 
 
 class AuthController {
 
