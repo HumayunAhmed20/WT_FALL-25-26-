@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../../Controller/VolunteerController.php';
 
 
@@ -35,13 +36,18 @@ $announcements = $controller->getAnnouncements();
     <div>
 
 <div class="sidebar">
+
+ <img src="\..\..\MVC\Images\445492922_122100097214350632_1896056624552573141_n.jpg." alt="Vol">
     <h3>Volunteer</h3>
   
     <a href="/WT_FALL-25-26-/PROJECT/project%20p/MVC/Views/Volunteer/dashboard.php">Dashboard</a>
+
+   
+  <a href="/WT_FALL-25-26-/PROJECT/project%20p/MVC/Controller/RegistrationController.php">Registrations</a>
   
-    <a href="../../Controller/RegistrationController.php">Registrations</a>
-  
-    <a href="../../Controller/logout.php">Logout</a>
+<a href="/WT_FALL-25-26-/PROJECT/project%20p/MVC/Views/Volunteer/Announcement.php">Announcement</a>
+    
+    <a href="/WT_FALL-25-26-/PROJECT/project%20p/MVC/Controller/logout.php">Logout</a>
 
 </div>
 
