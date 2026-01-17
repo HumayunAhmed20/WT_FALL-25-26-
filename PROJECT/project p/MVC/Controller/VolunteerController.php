@@ -2,7 +2,7 @@
 session_start();
 
 
-require_once __DIR__ . '../../Model/Db.php';
+require_once __DIR__ . '../../Model/db.php';
 require_once __DIR__ . '../../Model/VolunteerModel.php'; 
 
 class VolunteerController {
