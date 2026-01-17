@@ -80,7 +80,16 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
     <label>Email</label>
     <input type="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>" required>
 
-    
+    <?php if($showPassword): ?>
+        <label>New Password</label>
+        <input type="password" name="password" required>
+    <?php endif; ?>
+
+    <button type="submit">
+        <?php echo $showPassword ? 'Update Password' : 'Verify'; ?>
+    </button>
+      <a href="/WT_FALL-25-26-/PROJECT/project%20p/MVC/Views/login.php">Login Page</a>
+</form>
 
         
     </div>
